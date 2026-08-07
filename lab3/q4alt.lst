@@ -1,0 +1,215 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0x10001000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008         
+   10 00000008                 AREA             mycode, CODE, READONLY
+   11 00000000                 ENTRY
+   12 00000000                 EXPORT           Reset_Handler
+   13 00000000         
+   14 00000000         Reset_Handler
+   15 00000000         
+   16 00000000 480C            LDR              R0,=VALUE1
+   17 00000002 6801            LDR              R1,[R0]
+   18 00000004         
+   19 00000004 480C            LDR              R0,=VALUE2
+   20 00000006 6803            LDR              R3,[R0]
+   21 00000008         
+   22 00000008 F04F 0401       MOV              R4,#1       ; i
+   23 0000000C         
+   24 0000000C         LOOP
+   25 0000000C         
+   26 0000000C FB01 F504       MUL              R5,R1,R4    ; i*a
+   27 00000010         
+   28 00000010 462E            MOV              R6,R5       ; Temporary value
+   29 00000012         
+   30 00000012         MOD
+   31 00000012         
+   32 00000012 429E            CMP              R6,R3
+   33 00000014 DB02            BLT              CHECK
+   34 00000016         
+   35 00000016 EBA6 0603       SUB              R6,R6,R3
+   36 0000001A E7FA            B                MOD
+   37 0000001C         
+   38 0000001C         CHECK
+   39 0000001C         
+   40 0000001C 2E00            CMP              R6,#0
+   41 0000001E D002            BEQ              STORE
+   42 00000020         
+   43 00000020 F104 0401       ADD              R4,R4,#1
+   44 00000024 E7F2            B                LOOP
+   45 00000026         
+   46 00000026         STORE
+   47 00000026         
+   48 00000026 4F05            LDR              R7,=RESULT
+   49 00000028 603D            STR              R5,[R7]
+   50 0000002A         
+   51 0000002A         STOP
+   52 0000002A E7FE            B                STOP
+   53 0000002C         
+   54 0000002C         VALUE1
+   55 0000002C 0000000C        DCD              12
+   56 00000030         
+   57 00000030         VALUE2
+   58 00000030 00000012        DCD              18
+   59 00000034         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   60 00000034 00000000 
+              00000000 
+              00000000         AREA             data,DATA,READWRITE
+   61 00000000         
+   62 00000000         RESULT
+   63 00000000 00000000        DCD              0
+   64 00000004         
+   65 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=q4alt.d 
+-oq4alt.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\
+NXP\LPC17xx --predefine="__EVAL SETA 1" --list=q4alt.lst q4alt.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file q4alt.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file q4alt.s
+   Uses
+      At line 2 in file q4alt.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CHECK 0000001C
+
+Symbol: CHECK
+   Definitions
+      At line 38 in file q4alt.s
+   Uses
+      At line 33 in file q4alt.s
+Comment: CHECK used once
+LOOP 0000000C
+
+Symbol: LOOP
+   Definitions
+      At line 24 in file q4alt.s
+   Uses
+      At line 44 in file q4alt.s
+Comment: LOOP used once
+MOD 00000012
+
+Symbol: MOD
+   Definitions
+      At line 30 in file q4alt.s
+   Uses
+      At line 36 in file q4alt.s
+Comment: MOD used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 14 in file q4alt.s
+   Uses
+      At line 6 in file q4alt.s
+      At line 12 in file q4alt.s
+
+STOP 0000002A
+
+Symbol: STOP
+   Definitions
+      At line 51 in file q4alt.s
+   Uses
+      At line 52 in file q4alt.s
+Comment: STOP used once
+STORE 00000026
+
+Symbol: STORE
+   Definitions
+      At line 46 in file q4alt.s
+   Uses
+      At line 41 in file q4alt.s
+Comment: STORE used once
+VALUE1 0000002C
+
+Symbol: VALUE1
+   Definitions
+      At line 54 in file q4alt.s
+   Uses
+      At line 16 in file q4alt.s
+Comment: VALUE1 used once
+VALUE2 00000030
+
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: VALUE2
+   Definitions
+      At line 57 in file q4alt.s
+   Uses
+      At line 19 in file q4alt.s
+Comment: VALUE2 used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 10 in file q4alt.s
+   Uses
+      None
+Comment: mycode unused
+9 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESULT 00000000
+
+Symbol: RESULT
+   Definitions
+      At line 62 in file q4alt.s
+   Uses
+      At line 48 in file q4alt.s
+Comment: RESULT used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 60 in file q4alt.s
+   Uses
+      None
+Comment: data unused
+2 symbols
+346 symbols in table
