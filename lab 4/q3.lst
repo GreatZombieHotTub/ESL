@@ -1,0 +1,137 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 40001000        DCD              0x40001000
+    6 00000004 00000000        DCD              Reset_Handler
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008         
+   10 00000008                 AREA             mycode, CODE, READONLY
+   11 00000000                 ENTRY
+   12 00000000                 EXPORT           Reset_Handler
+   13 00000000         
+   14 00000000         Reset_Handler
+   15 00000000 4809            LDR              R0,=NUM
+   16 00000002 7801            LDRB             R1,[R0]
+   17 00000004         
+   18 00000004 F04F 0200       MOV              R2,#0
+   19 00000008 460B            MOV              R3,R1
+   20 0000000A         
+   21 0000000A         ; Find tens digit
+   22 0000000A         TEN
+   23 0000000A 2B0A            CMP              R3,#10
+   24 0000000C D304            BLO              UNIT
+   25 0000000E         
+   26 0000000E F1A3 030A       SUB              R3,R3,#10
+   27 00000012 F102 0201       ADD              R2,R2,#1
+   28 00000016 E7F8            B                TEN
+   29 00000018         
+   30 00000018         ; R2 = tens digit
+   31 00000018         ; R3 = units digit
+   32 00000018         
+   33 00000018         UNIT
+   34 00000018 EA4F 1202       MOV              R2,R2,LSL #04
+   35 0000001C EA42 0203       ORR              R2,R2,R3
+   36 00000020         
+   37 00000020         ; R2 = BCD result
+   38 00000020         
+   39 00000020         STOP
+   40 00000020 E7FE            B                STOP
+   41 00000022         
+   42 00000022 00 00           ALIGN
+   43 00000024         
+   44 00000024         NUM
+   45 00000024 00000019        DCD              0x00000019
+   46 00000028         
+   47 00000028                 END
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=q3.d -oq
+3.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\NXP\LP
+C17xx --predefine="__EVAL SETA 1" --list=q3.lst q3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file q3.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file q3.s
+   Uses
+      At line 2 in file q3.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+NUM 00000024
+
+Symbol: NUM
+   Definitions
+      At line 44 in file q3.s
+   Uses
+      At line 15 in file q3.s
+Comment: NUM used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 14 in file q3.s
+   Uses
+      At line 6 in file q3.s
+      At line 12 in file q3.s
+
+STOP 00000020
+
+Symbol: STOP
+   Definitions
+      At line 39 in file q3.s
+   Uses
+      At line 40 in file q3.s
+Comment: STOP used once
+TEN 0000000A
+
+Symbol: TEN
+   Definitions
+      At line 22 in file q3.s
+   Uses
+      At line 28 in file q3.s
+Comment: TEN used once
+UNIT 00000018
+
+Symbol: UNIT
+   Definitions
+      At line 33 in file q3.s
+   Uses
+      At line 24 in file q3.s
+Comment: UNIT used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 10 in file q3.s
+   Uses
+      None
+Comment: mycode unused
+6 symbols
+341 symbols in table
