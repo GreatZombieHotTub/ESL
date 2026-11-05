@@ -1,0 +1,9 @@
+test_lcd_keypad.o: test_lcd_keypad.c
+test_lcd_keypad.o: C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h
+test_lcd_keypad.o: C:\Keil\ARM\CMSIS\Include\core_cm3.h
+test_lcd_keypad.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+test_lcd_keypad.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+test_lcd_keypad.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+test_lcd_keypad.o: C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+test_lcd_keypad.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+test_lcd_keypad.o: LCD.h

@@ -1,0 +1,9 @@
+trial.o: trial.c
+trial.o: C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h
+trial.o: C:\Keil\ARM\CMSIS\Include\core_cm3.h
+trial.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+trial.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+trial.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+trial.o: C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+trial.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+trial.o: LCD.h

@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork 
+-I C:\Keil\ARM\RV31\INC 
+-I C:\Keil\ARM\CMSIS\Include 
+-I C:\Keil\ARM\Inc\NXP\LPC17xx 
+-o "test_lcd_keypad.o" --omf_browse "test_lcd_keypad.crf" --depend "test_lcd_keypad.d" "test_lcd_keypad.c"

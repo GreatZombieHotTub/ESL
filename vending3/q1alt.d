@@ -1,0 +1,9 @@
+q1alt.o: q1alt.c
+q1alt.o: C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h
+q1alt.o: C:\Keil\ARM\CMSIS\Include\core_cm3.h
+q1alt.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+q1alt.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+q1alt.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+q1alt.o: C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+q1alt.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+q1alt.o: LCD.h
